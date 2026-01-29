@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: system
+  namespace: argocd # Must match where Argo CD is installed
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io # Ensures apps/resources are deleted when project is deleted
+spec:
+  description: Core system apps project
+  # Allow manifests to deploy from any Git repos. Use specific URLs for compliance.
+  sourceRepos:
+  - '*'
+  # Only permit applications to deploy to specific namespaces and clusters
+  destinations:
+  - namespace: cert-manager
+    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
+  - namespace: kube-system
+    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
+  - namespace: argocd
+    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
+  - namespace: utilities
+    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
+  - namespace: network
+    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
+  - namespace: monitoring
+    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
+  clusterResourceWhitelist:
+  - group: "*"
+    kind: "*"
+  # Define roles and RBAC policies here (optional)
+  # roles:
+  #   - name: custom-project-role
+  #     description: Role with limited application access
+  #     policies:
+  #       - p, proj:my-project:custom-project-role, applications, get, my-app/*, allow
