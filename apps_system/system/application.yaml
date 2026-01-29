@@ -1,28 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: audiobookshelf
+  name: system
   namespace: argocd
 spec:
-  project: media
+  project: system
   sources:
-  # - chart: audiobookshelf
-  #   repoURL: https://charts.christianhuth.de
-  #   path: .
-  #   targetRevision: 1.4.1
-  #   helm:
-  #     releaseName: audiobookshelf
-  #     valueFiles:
-  #       - $values/apps_media/audiobookshelf/values.yaml
-  # - repoURL: 'git@github.com:pirish/cpv-apps.git'
-  #   targetRevision: HEAD
-  #   ref: values
   - repoURL: 'git@github.com:pirish/cpv-apps.git'
     targetRevision: HEAD
-    path: additional_manifests/audiobookshelf
+    path: additional_manifests/system
   destination:
     server: https://kubernetes.default.svc
-    namespace: media
+    namespace: kube-system
   syncPolicy:
     automated:
       enabled: true
