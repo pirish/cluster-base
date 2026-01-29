@@ -1,0 +1,75 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik-dashboard
+  namespace: kube-system
+  labels:
+    app.kubernetes.io/instance: traefik
+    app.kubernetes.io/name: traefik-dashboard
+spec:
+  type: ClusterIP
+  ports:
+  - name: traefik
+    port: 9000
+    targetPort: traefik
+    protocol: TCP
+  selector:
+    app.kubernetes.io/instance: traefik-kube-system
+    app.kubernetes.io/name: traefik
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: traefik-dns-udp
+#   namespace: kube-system
+#   labels:
+#     app.kubernetes.io/instance: traefik
+#     app.kubernetes.io/name: traefik-dns-udp
+# spec:
+#   type: ClusterIP
+#   ports:
+#   - name: dns-udp
+#     port: 53
+#     targetPort: dns-udp
+#     protocol: UDP
+#   selector:
+#     app.kubernetes.io/instance: traefik-kube-system
+#     app.kubernetes.io/name: traefik
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: traefik-dhcp-udp
+#   namespace: kube-system
+#   labels:
+#     app.kubernetes.io/instance: traefik
+#     app.kubernetes.io/name: traefik-dhcp-udp
+# spec:
+#   type: ClusterIP
+#   ports:
+#   - name: dhcp-udp
+#     port: 67
+#     targetPort: dhcp-udp
+#     protocol: UDP
+#   selector:
+#     app.kubernetes.io/instance: traefik-kube-system
+#     app.kubernetes.io/name: traefik
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: traefik-dhcp-ipv6
+#   namespace: kube-system
+#   labels:
+#     app.kubernetes.io/instance: traefik
+#     app.kubernetes.io/name: traefik-dhcp-ipv6
+# spec:
+#   type: ClusterIP
+#   ports:
+#   - name: dhcp-ipv6
+#     port: 547
+#     targetPort: dhcp-ipv6
+#     protocol: UDP
+#   selector:
+#     app.kubernetes.io/instance: traefik-kube-system
+#     app.kubernetes.io/name: traefik-dhcp-ipv6

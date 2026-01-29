@@ -1,20 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cpv-default
+  name: cluster-base
   namespace: argocd
   finalizers:
     # The default behaviour is foreground cascading deletion
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  project: system
   source:
-    repoURL: 'git@github.com:pirish/cpv-apps.git'
-    path: apps # Directory containing child application manifests
+    repoURL: 'git@github.com:pirish/cluster-base.git'
+    path: apps_system # Directory containing child application manifests
     targetRevision: HEAD
     directory:
       recurse: true
-      exclude: '*/additional_manifests' # Exclude additional manifests from being treated as separate applications
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd # Or another namespace where you want the parent app to reside
