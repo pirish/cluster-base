@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sealed-secrets
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-20"
+spec:
+  project: system
+  sources:
+  - chart: sealed-secrets
+    repoURL: https://bitnami-labs.github.io/sealed-secrets
+    path: .
+    targetRevision: 0.34.0
+    helm:
+      releaseName: sealed-secrets
+      valueFiles:
+        - $values/apps_system/sealed-secrets/values.yaml
+  - repoURL: 'git@github.com:pirish/cluster-base.git'
+    targetRevision: HEAD
+    ref: values
+  - repoURL: 'git@github.com:pirish/cluster-base.git'
+    targetRevision: HEAD
+    path: additional_manifests/sealed-secrets
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
