@@ -6,7 +6,7 @@ metadata:
 spec:
   project: system
   sources:
-  - repoURL: 'git@github.com:pirish/cpv-apps.git'
+  - repoURL: 'git@github.com:pirish/cluster-base.git'
     targetRevision: HEAD
     path: additional_manifests/system
   destination:

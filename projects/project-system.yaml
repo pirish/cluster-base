@@ -25,6 +25,8 @@ spec:
   - namespace: monitoring
     server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
   clusterResourceWhitelist:
+  - group: scheduling.k8s.io
+    kind: PriorityClass
   - group: "*"
     kind: "*"
   # Define roles and RBAC policies here (optional)
