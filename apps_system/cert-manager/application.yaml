@@ -19,9 +19,9 @@ spec:
   - repoURL: 'git@github.com:pirish/cluster-base.git'
     targetRevision: HEAD
     ref: values
-  - repoURL: 'git@github.com:pirish/cluster-base.git'
-    targetRevision: HEAD
-    path: additional_manifests/cert-manager
+  # - repoURL: 'git@github.com:pirish/cluster-base.git'
+  #   targetRevision: HEAD
+  #   path: additional_manifests/cert-manager
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager
