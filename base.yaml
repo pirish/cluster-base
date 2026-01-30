@@ -3,9 +3,9 @@ kind: Application
 metadata:
   name: cluster-base
   namespace: argocd
-  finalizers:
-    # The default behaviour is foreground cascading deletion
-    - resources-finalizer.argocd.argoproj.io
+  # finalizers:
+  #   # The default behaviour is foreground cascading deletion
+  #   - resources-finalizer.argocd.argoproj.io
 spec:
   project: system
   source:

@@ -3,8 +3,8 @@ kind: AppProject
 metadata:
   name: system
   namespace: argocd # Must match where Argo CD is installed
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io # Ensures apps/resources are deleted when project is deleted
+  # finalizers:
+  # - resources-finalizer.argocd.argoproj.io # Ensures apps/resources are deleted when project is deleted
 spec:
   description: Core system apps project
   # Allow manifests to deploy from any Git repos. Use specific URLs for compliance.
