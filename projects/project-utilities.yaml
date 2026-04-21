@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: system
+  name: utilities
   namespace: argocd # Must match where Argo CD is installed
   # finalizers:
   # - resources-finalizer.argocd.argoproj.io # Ensures apps/resources are deleted when project is deleted
 spec:
-  description: Core system apps project
+  description: Utilities apps project
   # Allow manifests to deploy from any Git repos. Use specific URLs for compliance.
   sourceRepos:
   - '*'
