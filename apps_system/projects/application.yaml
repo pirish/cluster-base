@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: system
+  name: projects
   namespace: argocd
 spec:
-  project: system
+  project: default
   sources:
   - repoURL: 'git@github.com:pirish/cluster-base.git'
     targetRevision: HEAD
