@@ -18,6 +18,9 @@ spec:
     server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
   - namespace: network
     server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
+  clusterResourceWhitelist:
+  - group: "*"
+    kind: "*"
   # Define roles and RBAC policies here (optional)
   # roles:
   #   - name: custom-project-role
