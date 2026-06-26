@@ -24,6 +24,10 @@ spec:
     server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
   - namespace: monitoring
     server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
+  - namespace: akri
+    server: https://kubernetes.default.svc 
+  - namespace: data
+    server: https://kubernetes.default.svc 
   clusterResourceWhitelist:
   - group: scheduling.k8s.io
     kind: PriorityClass
