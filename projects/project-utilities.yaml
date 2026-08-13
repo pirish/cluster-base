@@ -14,6 +14,8 @@ spec:
   destinations:
   - namespace: argocd
     server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
+  - namespace: akri
+    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
   - namespace: utilities
     server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
   - namespace: network
