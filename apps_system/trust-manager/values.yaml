@@ -1,0 +1,6 @@
+crds:
+  enabled: true
+  keep: true
+app:
+  trust:
+    namespace: cert-manager
