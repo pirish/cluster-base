@@ -12,15 +12,17 @@ spec:
   - '*'
   # Only permit applications to deploy to specific namespaces and clusters
   destinations:
-  - namespace: argocd
-    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
   - namespace: akri
     server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
-  - namespace: utilities
+  - namespace: argocd
+    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
+  - namespace: hermes
+    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
+  - namespace: kube-system
     server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
   - namespace: network
     server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
-  - namespace: kube-system
+  - namespace: utilities
     server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
   clusterResourceWhitelist:
   - group: "*"

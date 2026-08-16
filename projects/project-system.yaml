@@ -12,24 +12,26 @@ spec:
   - '*'
   # Only permit applications to deploy to specific namespaces and clusters
   destinations:
+  - namespace: akri
+    server: https://kubernetes.default.svc 
+  - namespace: argocd
+    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
   - namespace: cert-manager
+    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
+  - namespace: data
+    server: https://kubernetes.default.svc 
+  - namespace: hermes
     server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
   - namespace: kube-system
     server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
-  - namespace: argocd
-    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
-  - namespace: utilities
-    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
-  - namespace: network
-    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
   - namespace: monitoring
     server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
-  - namespace: akri
-    server: https://kubernetes.default.svc 
-  - namespace: data
-    server: https://kubernetes.default.svc 
+  - namespace: network
+    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server 
   - namespace: rabbitmq
     server: https://kubernetes.default.svc
+  - namespace: utilities
+    server: https://kubernetes.default.svc # The in-cluster Kubernetes API server
   clusterResourceWhitelist:
   - group: scheduling.k8s.io
     kind: PriorityClass
