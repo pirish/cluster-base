@@ -1,0 +1,13 @@
+nfs:
+  # Cluster or environment-specific values (e.g. server and path)
+  # should be configured in downstream cluster repos (cpv-apps, int-apps, etc.)
+  server: ""
+  path: ""
+
+storageClass:
+  create: true
+  defaultClass: false
+  name: nfs-client
+  allowVolumeExpansion: true
+  reclaimPolicy: Delete
+  archiveOnDelete: true
